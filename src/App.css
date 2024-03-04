@@ -1,38 +1,321 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, .1);
+  padding: 0px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header .website-logo {
+  font-weight: bolder;
+  font-size: 20px;
+  color: rgb(106, 45, 74);
+  font-family: Arial, Helvetica;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header .navbar ul {
+  list-style: none;
+}
+
+header .navbar ul li {
+  position: relative;
+  float: left;
+}
+
+header .navbar ul li a {
+  font-size: 20px;
+  padding: 10px;
+  color: black;
+  font-weight: bold;
+  display: block;
+}
+
+header .navbar ul li a:hover {
+  background-color: grey;
+  color: whitesmoke;
+}
+
+header .navbar ul li ul {
+  position: absolute;
+  left: 0;
+  width: 200px;
+  display: none;
+}
+
+header .navbar ul li ul li {
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul {
+  display: initial;
+}
+
+header #menu-bar {
+  display: none;
+}
+
+header label {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+}
+
+/* Opinions Container */
+
+.opinions-main-container {
+  margin-top: 5em;
+}
+
+.opinions-main-container .input-container{
+  display: flex;
+  justify-content: center;
+}
+
+.input-container form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 70%;
+}
+
+.opinions-main-container .input-container form textarea{
+  width: 50%;
+  height: 6em;
+  border-radius: 10px;
+  padding-top: 1em;
+  text-align: center; /* Center text horizontally */
+  line-height: 1.5em; /* Adjust line height to help with vertical centering */
+}
+
+.input-container form input {
+  width: 20%;
+  height: 2em;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.opinions-container {
+  margin-top: 3em;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Sub Opinions Container */
+.sub-opinions-container {
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  margin: 0 1%;
+  margin-bottom: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.sub-opinions-container .title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.sub-opinions-container .author-opinion-container {
+  display: flex;
+}
+
+.sub-opinions-container .author-opinion-container img {
+  width: 20%;
+  height: 75px;
+  border-radius: 50%;
+  margin-right: 1em;
+}
+
+/* Opinion details container */
+.opinion-details-container {
+  margin: 4em 0 0 1.5em;
+}
+
+.opinion-details-container .opinion-author-container {
+  margin-bottom: 0.5em;
+  display: flex;
   }
-  to {
-    transform: rotate(360deg);
+
+.opinion-details-container .opinion-content-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sub-opinion-title-and-picture, .sub-opinion-body {
+  width: 50%;
+  padding-right: 0.5em;
+}
+
+.sub-opinion-title-and-picture .title {
+  text-align: center;
+}
+
+.opinion-content-container .sub-opinion-body {
+  overflow-y: scroll;
+}
+
+.main-image {
+  width: 100%;
+  margin-top: 0.3em;
+}
+
+.opinion-details-container .opinion-author-container img {
+  width: 5%;
+  height: 75px;
+  border-radius: 50%;
+  margin-right: 1em;
+}
+
+/* Comments-container and Subcomment container */
+
+.sub-comments-container, .sub-subcomment-container {
+  margin-top: 2em;
+  display: flex;
+}
+
+.sub-comments-container img, .sub-subcomment-container img {
+  width: 5%;
+  height: 55px;
+  border-radius: 50%;
+  margin-right: 1em;
+  padding-bottom: 0.3em;
+}
+
+.sub-subcomment-container img {
+  width: 10%;
+}
+
+/* Signup page container */
+.signup-page-container {
+  margin-top: 5em;
+  text-align: center;
+}
+
+.signup-page-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.signup-page-container form input {
+  width: 20%;
+  border-radius: 10px;
+  height: 2em;
+  margin: 1em 0 1em 0;
+  text-align: center;
+}
+
+/* Login page container */
+.login-page-Container {
+  margin-top: 5em;
+  text-align: center;
+}
+
+.login-page-Container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.login-page-Container form input {
+  width: 20%;
+  border-radius: 10px;
+  height: 2em;
+  margin: 1em 0 1em 0;
+  text-align: center;
+}
+
+/* Edit opinion */
+form.form-edit-submit {
+  margin-top: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form.form-edit-submit textarea {
+  width: 50%;
+  height: 6em;
+  border-radius: 10px;
+  padding-top: 1em;
+  text-align: center; /* Center text horizontally */
+  line-height: 1.5em; /* Adjust line height to help with vertical centering */
+}
+
+form.form-edit-submit input {
+  width: 20%;
+  height: 2em;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 991px) {
+  /* Header */
+  
+  header {
+    padding: 20px;
   }
+
+  header label {
+    display: initial;
+  }
+
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background-color: white;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    display: none;
+  }
+
+  header .navbar ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  header #menu-bar:checked ~ .navbar {
+    display: initial;
+  }
+
+
+/* Sub Opinions Container */
+.sub-opinions-container {
+  width: 30%;
+  }
+}
+
+@media (max-width: 770px) {
+  /* Sub Opinions Container */
+  .sub-opinions-container {
+    width: 45%;
+    }
+}
+
+@media (max-width: 500px) {
+  /* Sub Opinions Container */
+  .sub-opinions-container {
+    width: 100%;
+    }
 }
