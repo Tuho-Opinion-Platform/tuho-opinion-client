@@ -7,13 +7,12 @@ function Navbar() {
 
   return(
     <header>
-      <Link href="#" className="website-logo">TUHO-OPINION</Link>
+      <Link to="/opinions" className="website-logo">TUHO-OPINION</Link>
       <input type="checkbox" id="menu-bar"></input>
       <label htmlFor="menu-bar">Menu</label>
       
       <nav className="navbar">
       <ul>
-        <li><Link to="/opinions">Opinions</Link></li>
         <li><Link to="/">Account</Link>
           {isLoggedIn ?
           <ul>

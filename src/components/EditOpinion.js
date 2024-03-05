@@ -29,17 +29,16 @@ function EditOpinion() {
     fetchingOpinionId();
   }, []);
 
-  function handleEditSubmit(e) {
+  function handleUpdateSubmitOpinion(e) {
     e.preventDefault();
     
     const requestOpinionBody = {
       title, picture, body
     }
     
-    console.log(requestOpinionBody)
     axios.put(`${API_URL}/api/opinions/${opinionId}`, requestOpinionBody, {headers: {Authorization: `Bearer ${storedToken}`}} )
       .then(() => {
-        alert("You have successfully your opinion")
+        alert("You have successfully edit your opinion")
         navigate(-1)
       })
       .catch(e => console.log("error edit the opinion"))
@@ -49,16 +48,16 @@ function EditOpinion() {
   function handleDeleteOpinion() {
     axios.delete(`${API_URL}/api/opinions/${opinionId}`, {headers: {Authorization: `Bearer ${storedToken}`}} )
     .then(() => {
-      alert("You have successfully delete your opinion")
-      navigate("/opinions")
+      alert("You have successfully deleted your opinion")
+      navigate("/")
     })
     .catch(e => console.log("error deleting your opinion"))
   }
 
 
   return(
-    <div>
-      <form onSubmit={handleEditSubmit} className="form-edit-submit">
+    <div className="form-container">
+      <form onSubmit={handleUpdateSubmitOpinion} className="form-edit-submit">
         <label>Title</label>
         <input 
           type="text"
@@ -68,7 +67,7 @@ function EditOpinion() {
         />
 
         <label>Opinion Body</label>
-        <textarea 
+        <textarea
           type="text"
           name="body"
           value={body}
@@ -82,11 +81,11 @@ function EditOpinion() {
           value={picture}
           onChange={e => setPicture(e.target.value)}
         />
-
-        <button type="submit">Submit</button>
+       
+        <button type="submit" className="submit-button">Submit</button>
       </form>
 
-      <button onClick={handleDeleteOpinion}>Delete</button>
+      <button onClick={handleDeleteOpinion} className="delete-button">Delete</button>
     </div>
   );
 };

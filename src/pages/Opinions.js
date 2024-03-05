@@ -16,7 +16,7 @@ function Opinions() {
 
     fetchingOpinions();
   }, [])
-  
+
 return(
     <div className="opinions-main-container">
       <div className="input-container">
@@ -35,7 +35,7 @@ return(
             </div>
             <p className="title">{elementOfOpinions.title}</p>
             {elementOfOpinions.picture ? <img src={elementOfOpinions.picture} alt="img"/> : <p>No Picture</p>}
-            <Link to={`${elementOfOpinions._id}`}>See more</Link>
+            <Link to={`/opinions/${elementOfOpinions._id}`}>See more</Link>
           </div>
         ))}
       </div>

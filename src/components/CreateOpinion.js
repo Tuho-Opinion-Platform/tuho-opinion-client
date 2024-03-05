@@ -44,8 +44,6 @@ function CreateOpinion() {
       return <p>{setMessage("Please upload a picture")}</p>
     }
 
-    console.log(newOpinion)
-
     axios.post(`${API_URL}/api/opinions`, newOpinion, {headers: {Authorization: `Bearer ${storedToken}`}})
       .then(() => {
         setTitle("");
@@ -71,7 +69,7 @@ function CreateOpinion() {
           type="text"
           name="body"
           value={body}
-          placeholder="Your opinion"
+          placeholder="Please elaborate your opinion in positive way"
           onChange={(e) => setBody(e.target.value)}
         />
 

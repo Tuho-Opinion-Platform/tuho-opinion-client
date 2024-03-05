@@ -1,5 +1,7 @@
-function Comments({bodyComment, subComments, authorComment}) {
-  
+import { Link } from "react-router-dom";
+
+function Comments({bodyComment, subComments, authorComment, _id}) {
+  console.log(_id)
   return(
     <div className="comments-container">
       <div className="sub-comments-container">
@@ -7,7 +9,9 @@ function Comments({bodyComment, subComments, authorComment}) {
         <div>
           <p>{authorComment.name}</p>
           <p>{authorComment.profession}</p>
-          <p>{bodyComment}</p>
+          <hr/>
+          <p className="body-sub-comment">{bodyComment}</p>
+          <Link to={`/comments/${_id}`}>Edit</Link>
           {subComments.map(element =>( 
           <div key={element._id} className="sub-subcomment-container">
             <img src={element.authorSubcomment.picture} alt="img"/>

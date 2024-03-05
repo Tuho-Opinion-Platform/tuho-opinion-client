@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Comments from "./Comments";
+import CreateComment from "../components/CreateComment";
 
 function OpinionDetails() {
   
@@ -19,7 +20,6 @@ function OpinionDetails() {
 
     fetchingOpinionId();
   }, []);
-  
 
   if(opinion === "") {
     return <p>Loading</p>
@@ -34,6 +34,7 @@ function OpinionDetails() {
             <hr/>
           </div>
         </div>
+        
         <div className="opinion-content-container">
           <div className="sub-opinion-title-and-picture">
             <p className="title">{opinion.title}</p>
@@ -44,12 +45,13 @@ function OpinionDetails() {
           </div>
           <div className="sub-opinion-body">
             <p>{opinion.body}</p>
+            <CreateComment />
+            <div className="opinion-comments-container">
+              {opinion && opinion.comments.map(comment => (
+                <Comments key={comment._id} {...comment} />
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="opinion-comments-container">
-          {opinion && opinion.comments.map(comment => (
-            <Comments key={comment._id} {...comment} />
-          ))}
         </div>
       </div>
     );
