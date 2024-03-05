@@ -5,7 +5,6 @@ import Comments from "./Comments";
 import CreateComment from "../components/CreateComment";
 
 function OpinionDetails() {
-  
   const API_URL = process.env.REACT_APP_SERVER_URL;
   const {opinionId} = useParams();
   const storedToken = localStorage.getItem("authToken");

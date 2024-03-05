@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 
 function CreateComment() {
   const API_URL = process.env.REACT_APP_SERVER_URL;
   const storedToken = localStorage.getItem("authToken");
   const {opinionId} = useParams();
-
+  const {user} = useContext(AuthContext);
   const [bodyComment, setBodyComment] = useState("");
 
   const postNewComment = (e) => {
@@ -21,10 +23,11 @@ function CreateComment() {
         })
         .catch(e => console.log("error posting new comment"))
   };
-
+  
   return(
     <div className="comment-container">
-      <p>O</p>
+      {user?.picture? <img src={user?.picture} alt="img"/> : <p>No picture</p>}
+
       <form className="comment-form" onSubmit={postNewComment}>
         <input 
           type="text"
