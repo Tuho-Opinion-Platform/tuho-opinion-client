@@ -12,6 +12,8 @@ function Comments({bodyComment, subComments, authorComment, _id}) {
           <hr/>
           <p className="body-sub-comment">{bodyComment}</p>
           <Link to={`/comments/${_id}`}>Edit</Link>
+          <Link to={`/comments/${_id}/subcomments`}>Reply</Link>
+          
           {subComments.map(element =>( 
           <div key={element._id} className="sub-subcomment-container">
             <img src={element.authorSubcomment.picture} alt="img"/>
@@ -19,6 +21,8 @@ function Comments({bodyComment, subComments, authorComment, _id}) {
               <p>{element.authorSubcomment.name}</p>
               <p>{element.authorSubcomment.profession}</p>
               <p>{element.bodySubcomment}</p>
+              <Link to={`/subcomments/${element._id}`}>Edit</Link>
+             <Link to={`/comments/${_id}/subcomments`}>Reply</Link>
             </div>
           </div>
           ))}

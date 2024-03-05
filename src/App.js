@@ -8,6 +8,8 @@ import OpinionDetails from './pages/OpinionDetails';
 import EditOpinion from './components/EditOpinion';
 import CreateComment from './components/CreateComment';
 import EditComment from './components/EditComment';
+import CreateSubcomment from './components/CreateSubcomment';
+import EditSubcomment from './components/EditSubcomment';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path='/opinions/edit/:opinionId' element={ <EditOpinion />} />
         <Route path='/opinions/:opinionId/comments' element={ <CreateComment />} />
         <Route path='/comments/:commentId' element={ <EditComment />} />
+        <Route path='/comments/:commentId/subcomments' element={ <CreateSubcomment />} />
+        <Route path='/subcomments/:subcommentId' element={ <EditSubcomment />} />
       </Routes>
     </div>
   );

@@ -221,6 +221,39 @@ header label {
   cursor: pointer;
 }
 
+/* Create Sub Comment */
+.post-subcomment-container {
+  margin-top: 2em;
+  display: flex;
+  align-items: flex-start;
+}
+
+.post-subcomment-container p {
+  font-size: 50px;
+}
+
+.subcomment-form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: flex-end;
+  margin-left: 10px;
+}
+
+.subcomment-form input {
+  width: 100%;
+  height: 5em;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin-bottom: 0.5em;
+}
+
+.subcomment-form button{
+  width: auto;
+  cursor: pointer;
+}
+
 /* Comments-container and Subcomment container */
 
 .sub-comments-container, .sub-subcomment-container {
@@ -246,6 +279,11 @@ header label {
 
 /* Edit Form Comment */
 .edit-form-comment {
+  margin-top: 5em;
+}
+
+/* Edit Form Subcomment */
+.edit-form-subcomment {
   margin-top: 5em;
 }
 
