@@ -6,22 +6,39 @@ import CreateOpinion from "../components/CreateOpinion";
 function Opinions() {
   const API_URL = process.env.REACT_APP_SERVER_URL
   const [opinions, setOpinions] = useState([]);
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
     function fetchingOpinions() {
       axios.get(`${API_URL}/api/opinions`)
-        .then(gettingOpinions => setOpinions(gettingOpinions.data))
+        .then(gettingOpinions => {
+          let filterByTitle = gettingOpinions.data.filter(element => {
+            const opinionTitle = element.title.toLowerCase().includes(title.toLowerCase());
+            return opinionTitle;
+          });
+          setOpinions(filterByTitle)
+          console.log(filterByTitle)
+        })
         .catch(e => console.log("error fetching the opinions"))
     };
 
     fetchingOpinions();
-  }, [])
+  }, [title])
 
 return(
     <div className="opinions-main-container">
+      <input 
+        type="text"
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+        placeholder="Search by title"
+      />
+      
       <div className="input-container">
         <CreateOpinion />
       </div>
+      
+
       <div className="opinions-container">
         {opinions.map(elementOfOpinions => (
           <div key={elementOfOpinions._id} className="sub-opinions-container">

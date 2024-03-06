@@ -208,7 +208,6 @@ header label {
   flex-direction: column;
   flex-grow: 1;
   align-items: flex-end;
-  margin-left: 10px;
 }
 
 .comment-form input {
@@ -275,6 +274,14 @@ header label {
 
 .sub-subcomment-container img {
   width: 10%;
+}
+
+.sub-comments-container div .edit-reply-container {
+  display: flex;
+}
+
+.sub-comments-container div a {
+  margin-right: 5px;
 }
 
 .body-sub-comment {
