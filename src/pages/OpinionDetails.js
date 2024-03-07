@@ -46,6 +46,10 @@ function OpinionDetails() {
           <div className="sub-opinion-title-and-picture">
             <p className="title">{opinion.title}</p>
             {opinion.picture ? <img src={opinion.picture} alt="img" className="main-image"/> : <p>No Picture</p>}
+            
+          </div>
+          <div className="sub-opinion-body">
+            <p>{opinion.body}</p>
             {user && user._id === opinionOwnerId 
             ? 
             <button>
@@ -54,9 +58,6 @@ function OpinionDetails() {
             :
             <></>
             }
-          </div>
-          <div className="sub-opinion-body">
-            <p>{opinion.body}</p>
             <br />
             {user ? <CreateComment/> : <h3>Please login to leave the comment!</h3>}
             

@@ -13,6 +13,25 @@ function EditOpinion() {
   const [picture, setPicture] = useState("");
   const [body, setBody] = useState("");
 
+  const uploadImage = (file) => {
+    return axios
+      .post(`${API_URL}/api/upload`, file, {headers: {Authorization: `Bearer ${storedToken}`}})
+      .then((res) => res.data)
+      .catch((e) => console.log(e));
+  };
+
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+    uploadData.append("picture", e.target.files[0]);
+
+    uploadImage(uploadData)
+      .then((response) => {
+        setPicture(response.picture);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
+
+
   const fetchingOpinionId = () => {
     axios.get(`${API_URL}/api/opinions/${opinionId}`, {headers: {Authorization: `Bearer ${storedToken}`}})
       .then(gettingOpinionId => {
@@ -20,7 +39,6 @@ function EditOpinion() {
         setTitle(opinion.title);
         setPicture(opinion.picture);
         setBody(opinion.body);
-
       })
       .catch(e => console.log("error edit new opinion"))
   };
@@ -31,10 +49,10 @@ function EditOpinion() {
 
   function handleUpdateSubmitOpinion(e) {
     e.preventDefault();
-    
+  
     const requestOpinionBody = {
       title, picture, body
-    }
+    };
     
     axios.put(`${API_URL}/api/opinions/${opinionId}`, requestOpinionBody, {headers: {Authorization: `Bearer ${storedToken}`}} )
       .then(() => {
@@ -75,11 +93,12 @@ function EditOpinion() {
         />
 
         <label>Picture</label>
-        <input 
-          type="text"
+        <img src={picture} alt="img"/>
+
+        <input
+          type="file"
           name="picture"
-          value={picture}
-          onChange={e => setPicture(e.target.value)}
+          onChange={handleFileUpload}
         />
        
         <button type="submit" className="submit-button">Submit</button>

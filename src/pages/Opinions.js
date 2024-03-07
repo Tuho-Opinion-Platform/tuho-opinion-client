@@ -1,12 +1,14 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CreateOpinion from "../components/CreateOpinion";
+import { AuthContext } from "../context/auth.context";
 
 function Opinions() {
   const API_URL = process.env.REACT_APP_SERVER_URL
   const [opinions, setOpinions] = useState([]);
   const [title, setTitle] = useState("");
+  const {user} = useContext(AuthContext)
 
   useEffect(() => {
     function fetchingOpinions() {
@@ -27,17 +29,18 @@ function Opinions() {
 
 return(
     <div className="opinions-main-container">
+      
+      <div className="input-container">
+        {user ? <CreateOpinion /> : <h3>Please login to post your opinion click <Link to="/login">here</Link></h3>}
+      </div>
+      
       <input 
         type="text"
         value={title}
         onChange={e => setTitle(e.target.value)}
         placeholder="Search by title"
+        style={{margin: "0 0 0 1em"}}
       />
-      
-      <div className="input-container">
-        <CreateOpinion />
-      </div>
-      
 
       <div className="opinions-container">
         {opinions.map(elementOfOpinions => (
@@ -51,7 +54,7 @@ return(
               </div>
             </div>
             <p className="title">{elementOfOpinions.title}</p>
-            {elementOfOpinions.picture ? <img src={elementOfOpinions.picture} alt="img"/> : <p>No Picture</p>}
+            {elementOfOpinions.picture ? <img src={elementOfOpinions.picture} alt="img" className="main-picture-from-opinion-page"/> : <p>No Picture</p>}
             <Link to={`/opinions/${elementOfOpinions._id}`}>See more</Link>
           </div>
         ))}

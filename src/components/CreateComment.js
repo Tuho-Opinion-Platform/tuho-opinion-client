@@ -28,7 +28,7 @@ function CreateComment() {
     <div className="comment-container">
       {user?.picture? <img src={user?.picture} alt="img"/> : <p>No picture</p>}
 
-      <form className="comment-form" onSubmit={postNewComment}>
+      <form onSubmit={postNewComment} className="comment-form">
         <input 
           type="text"
           name="bodyComment"

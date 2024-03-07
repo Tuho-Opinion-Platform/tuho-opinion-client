@@ -90,7 +90,7 @@ header label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  width: 100%;
 }
 
 .opinions-main-container .input-container form textarea{
@@ -98,8 +98,8 @@ header label {
   height: 6em;
   border-radius: 10px;
   padding-top: 1em;
-  text-align: center; /* Center text horizontally */
-  line-height: 1.5em; /* Adjust line height to help with vertical centering */
+  text-align: center;
+  line-height: 1.5em;
 }
 
 .input-container form input {
@@ -114,7 +114,13 @@ header label {
   margin-top: 3em;
   display: flex;
   flex-wrap: wrap;
+  flex-grow: 1;
   justify-content: center;
+}
+
+.main-picture-from-opinion-page{
+  width: 100%;
+  height: 15em;
 }
 
 /* Sub Opinions Container */
@@ -177,6 +183,7 @@ header label {
 
 .main-image {
   width: 100%;
+  height: 30em;
   margin-top: 0.3em;
 }
 
@@ -226,13 +233,16 @@ header label {
 
 /* Create Sub Comment */
 .post-subcomment-container {
-  margin-top: 2em;
+  margin-top: 5em;
   display: flex;
   align-items: flex-start;
 }
 
-.post-subcomment-container p {
-  font-size: 50px;
+.post-subcomment-container img {
+  width: 9%;
+  height: 65px;
+  border-radius: 50%;
+  margin-right: 1em;
 }
 
 .subcomment-form {
@@ -258,10 +268,24 @@ header label {
 }
 
 /* Comments-container and Subcomment container */
+.comments-container {
+  margin-bottom: 2em;
+}
 
 .sub-comments-container, .sub-subcomment-container {
   margin-top: 2em;
   display: flex;
+}
+
+.form-edit-comment input {
+  width: 100%;
+  border-left: none;
+  border-right: none;
+}
+
+.form-edit-comment button {
+  margin-top: 0.5em;
+  margin-right: 0.5em;
 }
 
 .sub-comments-container img, .sub-subcomment-container img {
@@ -286,11 +310,6 @@ header label {
 
 .body-sub-comment {
   margin-top: 1em;
-}
-
-/* Edit Form Comment */
-.edit-form-comment {
-  margin-top: 5em;
 }
 
 /* Edit Form Subcomment */
@@ -341,12 +360,12 @@ header label {
 }
 
 /* Edit opinion */
-div.form-container {
+.form-container {
   margin-top: 5em;
   text-align: center;
 }
 
-div.form-container .delete-button, .submit-button {
+.form-container .delete-button, .submit-button {
   margin-top: 3em;
   padding: 0.5em;
   width: 60px;
@@ -358,13 +377,13 @@ div.form-container .delete-button, .submit-button {
   margin-top: 0;
 }
 
-form.form-edit-submit {
+.form-edit-submit {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-form.form-edit-submit textarea {
+.form-edit-submit textarea {
   width: 50%;
   height: 6em;
   border-radius: 10px;
@@ -373,12 +392,18 @@ form.form-edit-submit textarea {
   line-height: 1.5em; /* Adjust line height to help with vertical centering */
 }
 
-form.form-edit-submit input {
+.form-edit-submit input {
   width: 20%;
   height: 2em;
   border-radius: 10px;
   text-align: center;
   margin-bottom: 0.5em;
+}
+
+.form-edit-submit img {
+  width: 40%;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
 
 @media (max-width: 991px) {
