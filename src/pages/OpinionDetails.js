@@ -37,7 +37,9 @@ function OpinionDetails() {
           <img src={opinion.authorOpinion.picture} alt="img" />
           <div>
             <p>Author: {opinion.authorOpinion.name}</p>
-            <p>{opinion.authorOpinion.profession}</p> 
+            <p>{new Date(opinion.createdAt).toLocaleDateString("en", { day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}</p>
+            <p>{opinion.authorOpinion.profession}</p>
+            <br /> 
             <hr/>
           </div>
         </div>
@@ -46,8 +48,8 @@ function OpinionDetails() {
           <div className="sub-opinion-title-and-picture">
             <p className="title">{opinion.title}</p>
             {opinion.picture ? <img src={opinion.picture} alt="img" className="main-image"/> : <p>No Picture</p>}
-            
           </div>
+
           <div className="sub-opinion-body">
             <p>{opinion.body}</p>
             {user && user._id === opinionOwnerId 

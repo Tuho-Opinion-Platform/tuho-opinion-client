@@ -34,13 +34,14 @@ return(
         {user ? <CreateOpinion /> : <h3>Please login to post your opinion click <Link to="/login">here</Link></h3>}
       </div>
       
-      <input 
-        type="text"
-        value={title}
-        onChange={e => setTitle(e.target.value)}
-        placeholder="Search by title"
-        style={{margin: "0 0 0 1em"}}
-      />
+      <div className="input-filter-container">
+        <input
+          type="text"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          placeholder="Search by title"
+        />
+      </div>
 
       <div className="opinions-container">
         {opinions.map(elementOfOpinions => (
@@ -54,8 +55,9 @@ return(
               </div>
             </div>
             <p className="title">{elementOfOpinions.title}</p>
-            {elementOfOpinions.picture ? <img src={elementOfOpinions.picture} alt="img" className="main-picture-from-opinion-page"/> : <p>No Picture</p>}
-            <Link to={`/opinions/${elementOfOpinions._id}`}>See more</Link>
+            <Link to={`/opinions/${elementOfOpinions._id}`}>
+              {elementOfOpinions.picture ? <img src={elementOfOpinions.picture} alt="img" className="main-picture-from-opinion-page"/> : <p>No Picture</p>}
+            </Link>            
           </div>
         ))}
       </div>

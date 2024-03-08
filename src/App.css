@@ -152,7 +152,7 @@ header label {
 
 /* Opinion details container */
 .opinion-details-container {
-  margin: 4em 0 0 1.5em;
+  margin: 4em 0.5em 0 0.5em;
 }
 
 .opinion-author-container {
@@ -231,42 +231,6 @@ header label {
   cursor: pointer;
 }
 
-/* Create Sub Comment */
-.post-subcomment-container {
-  margin-top: 5em;
-  display: flex;
-  align-items: flex-start;
-}
-
-.post-subcomment-container img {
-  width: 9%;
-  height: 65px;
-  border-radius: 50%;
-  margin-right: 1em;
-}
-
-.subcomment-form {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  align-items: flex-end;
-  margin-left: 10px;
-}
-
-.subcomment-form input {
-  width: 100%;
-  height: 5em;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  margin-bottom: 0.5em;
-}
-
-.subcomment-form button{
-  width: auto;
-  cursor: pointer;
-}
-
 /* Comments-container and Subcomment container */
 .comments-container {
   margin-bottom: 2em;
@@ -277,13 +241,25 @@ header label {
   display: flex;
 }
 
-.form-edit-comment input {
+.sub-subcomment-container {
+  margin-left: 5em;
+}
+
+.sub-subcomment-container a {
+  margin-right: 0.5em;
+}
+
+.form-edit-comment input, .form-create-new-subcomment input,
+.form-edit-subcomment input {
   width: 100%;
+  height: 5em;
+  border-top: none;
   border-left: none;
   border-right: none;
 }
 
-.form-edit-comment button {
+.form-edit-comment button, .form-create-new-subcomment button,
+.form-edit-subcomment button {
   margin-top: 0.5em;
   margin-right: 0.5em;
 }
@@ -310,6 +286,16 @@ header label {
 
 .body-sub-comment {
   margin-top: 1em;
+}
+
+.form-create-new-subcomment {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-create-new-subcomment .buttons-create-new-subcomment {
+  display: flex;
+  justify-content: end;
 }
 
 /* Edit Form Subcomment */
@@ -437,21 +423,102 @@ header label {
 
 
 /* Sub Opinions Container */
+.opinion-details-container {
+  margin-top: 5em;
+}
+
 .sub-opinions-container {
   width: 30%;
+  }
+
+  .opinion-content-container {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .sub-opinion-title-and-picture, .sub-opinion-body {
+    flex-grow: 1;
+  }
+
+  .opinion-details-container .opinion-author-container img {
+    width: 8%;
   }
 }
 
 @media (max-width: 770px) {
+  /* Input-container form */
+  .opinions-main-container .input-container form textarea {
+    width: 90%;
+  }
+
   /* Sub Opinions Container */
   .sub-opinions-container {
     width: 45%;
     }
+
+  .opinion-content-container {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .sub-opinion-title-and-picture, .sub-opinion-body {
+    flex-grow: 1;
+  }
+
+  .opinion-details-container .opinion-author-container img {
+    width: 10%;
+  }
 }
 
 @media (max-width: 500px) {
+  /* Input-container form */
+  .opinions-main-container .input-container {
+    margin-bottom: 1em;
+  }
+
+  .opinions-main-container .input-container form textarea {
+    width: 90%;
+  }
+
+  .opinions-main-container div.input-filter-container {
+    width: 100% !important;
+    height: 50px;
+  }
+
   /* Sub Opinions Container */
+  .opinion-details-container .opinion-author-container img {
+    width: 17%;
+  }
+
   .sub-opinions-container {
     width: 100%;
     }
+
+  .opinion-content-container {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .sub-opinion-title-and-picture, .sub-opinion-body {
+    flex-grow: 1;
+  }
+
+  .sub-opinion-title-and-picture img {
+    height: 20em;
+  }
+
+  .comments-container .sub-comments-container img {
+    width: 12%;
+  }
+
+  .comment-container img {
+    width: 13%;
+  }
+
 }
