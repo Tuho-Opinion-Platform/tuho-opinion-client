@@ -61,7 +61,7 @@ function OpinionDetails() {
             <></>
             }
             <br />
-            {user ? <CreateComment/> : <h3>Please login to leave the comment!</h3>}
+            {user ? <CreateComment/> : <h3>Please login to leave the comment! <Link to="/login">here</Link></h3>}
             
             <div className="opinion-comments-container">
               {opinion && opinion.comments.map(comment => (
