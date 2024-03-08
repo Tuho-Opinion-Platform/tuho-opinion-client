@@ -1,13 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { AuthContext } from "../context/auth.context";
 
 function SignupPage(props) {
   const API_URL = process.env.REACT_APP_SERVER_URL;
   const navigate = useNavigate();
-
-  const {user} = useContext(AuthContext);
 
   const [picture, setPicture] = useState(null);
   const [email, setEmail] = useState("");

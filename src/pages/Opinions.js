@@ -50,7 +50,8 @@ return(
               <img src={elementOfOpinions.authorOpinion.picture} alt="img" />
               <div>
                 <p>Author: {elementOfOpinions.authorOpinion.name}</p>
-                <p>{elementOfOpinions.authorOpinion.profession}</p> 
+                {/* <p>{elementOfOpinions.authorOpinion.profession}</p>  */}
+                <p>{new Date(elementOfOpinions.createdAt).toLocaleDateString("en", { day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}</p>
                 <hr/>
               </div>
             </div>

@@ -217,7 +217,7 @@ header label {
   align-items: flex-end;
 }
 
-.comment-form input {
+.comment-form textarea {
   width: 100%;
   height: 5em;
   border-top: none;
@@ -249,8 +249,8 @@ header label {
   margin-right: 0.5em;
 }
 
-.form-edit-comment input, .form-create-new-subcomment input,
-.form-edit-subcomment input {
+.form-edit-comment textarea, .form-create-new-subcomment textarea,
+.form-edit-subcomment textarea {
   width: 100%;
   height: 5em;
   border-top: none;
@@ -421,6 +421,10 @@ header label {
     display: initial;
   }
 
+  /* Input-container form */
+  .opinions-main-container .input-container form input{
+    width: 30%;
+  }
 
   /* Sub Opinions Container */
   .opinion-details-container {
@@ -454,6 +458,11 @@ header label {
 
 @media (max-width: 800px) {
   /* Input-container form */
+
+  .opinions-main-container .input-container form input{
+    width: 35%;
+  }
+
   .opinions-main-container .input-container form textarea {
     width: 90%;
   }
@@ -487,6 +496,15 @@ header label {
 
 @media (max-width: 500px) {
   /* Input-container form */
+  .opinions-main-container .input-container form input{
+    width: 40%;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .opinions-main-container .input-container form input:hover {
+    width: 45%;
+  }
+
   .opinions-main-container .input-container {
     margin-bottom: 1em;
   }

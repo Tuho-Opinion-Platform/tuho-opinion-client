@@ -91,12 +91,12 @@ function Comments({ bodyComment: initialBodyComment, subComments: initialSubComm
         <img src={authorComment?.picture} alt="author"/>
         <div>
           <p>{authorComment?.name || 'Anonymous'}</p>
-          <p>Created at {new Date(createdAt).toLocaleDateString("en", { day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}</p>
+          <p>{new Date(createdAt).toLocaleDateString("en", { day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}</p>
           {/* <p>Updated at {new Date(updatedAt).toLocaleDateString("en", { day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}</p>           */}
           
           {isEditing ? (
             <form onSubmit={handleUpdateSubmitComment} className="form-edit-comment">
-              <input value={bodyComment} onChange={handleCommentChange} />
+              <textarea value={bodyComment} onChange={handleCommentChange} />
               <button type="submit">Save</button>
               <button onClick={toggleEdit} type="button">Cancel</button>
             </form>
@@ -123,7 +123,7 @@ function Comments({ bodyComment: initialBodyComment, subComments: initialSubComm
           e.preventDefault();
           handleAddSubcomment();
         }} className="form-create-new-subcomment">
-          <input value={newSubcommentText} onChange={handleNewSubcommentChange} />
+          <textarea value={newSubcommentText} onChange={handleNewSubcommentChange} />
           <div className="buttons-create-new-subcomment">
             <button type="submit">Add Reply</button>
             <button onClick={() => toggleReply(null)} type="button">Cancel</button>
@@ -145,7 +145,7 @@ function Comments({ bodyComment: initialBodyComment, subComments: initialSubComm
                 e.preventDefault();
                 handleEditSubcomment(element?._id);
               }} className="form-edit-subcomment">
-                <input value={editingSubcommentText} onChange={(e) => setEditingSubcommentText(e.target.value)} />
+                <textarea value={editingSubcommentText} onChange={(e) => setEditingSubcommentText(e.target.value)} />
                 <button type="submit">Save</button>
                 <button onClick={() => setEditingSubcommentId(null)} type="button">Cancel</button>
               </form>
@@ -169,7 +169,7 @@ function Comments({ bodyComment: initialBodyComment, subComments: initialSubComm
                 e.preventDefault();
                 handleAddSubcomment();
               }} className="form-create-new-subcomment">
-                <input value={newSubcommentText} onChange={handleNewSubcommentChange} />
+                <textarea value={newSubcommentText} onChange={handleNewSubcommentChange} />
                 <div className="buttons-create-new-subcomment">
                   <button type="submit">Add Reply</button>
                   <button onClick={() => toggleReply(null)} type="button">Cancel</button>

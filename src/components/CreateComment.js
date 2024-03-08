@@ -29,7 +29,7 @@ function CreateComment() {
       {user?.picture? <img src={user?.picture} alt="img"/> : <p>No picture</p>}
 
       <form onSubmit={postNewComment} className="comment-form">
-        <input 
+        <textarea 
           type="text"
           name="bodyComment"
           value={bodyComment}

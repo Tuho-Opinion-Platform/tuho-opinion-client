@@ -69,7 +69,7 @@ function CreateOpinion() {
           type="text"
           name="body"
           value={body}
-          placeholder="Please elaborate your opinion in positive way"
+          placeholder="Please give your opinion in positive way"
           onChange={(e) => setBody(e.target.value)}
         />
 
