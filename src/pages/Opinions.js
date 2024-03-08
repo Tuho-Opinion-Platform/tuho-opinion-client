@@ -28,7 +28,7 @@ function Opinions() {
   }, [title])
 
 if(opinions.length === null  ) {
-  <h3>Loading...</h3>
+  <h3 className="loading-from-opinion-page">Loading...</h3>
 } else {
   return(
       <div className="opinions-main-container">
