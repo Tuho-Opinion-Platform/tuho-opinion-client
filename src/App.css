@@ -422,14 +422,14 @@ header label {
   }
 
 
-/* Sub Opinions Container */
-.opinion-details-container {
-  margin-top: 5em;
-}
-
-.sub-opinions-container {
-  width: 30%;
+  /* Sub Opinions Container */
+  .opinion-details-container {
+    margin-top: 5em;
   }
+
+  .sub-opinions-container {
+    width: 30%;
+    }
 
   .opinion-content-container {
     display: flex;
@@ -445,9 +445,14 @@ header label {
   .opinion-details-container .opinion-author-container img {
     width: 8%;
   }
+
+  /* Signup and Login page container */
+  .signup-page-container form input, .login-page-Container form input {
+    width: 30% !important;
+  }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 800px) {
   /* Input-container form */
   .opinions-main-container .input-container form textarea {
     width: 90%;
@@ -472,6 +477,12 @@ header label {
   .opinion-details-container .opinion-author-container img {
     width: 10%;
   }
+
+  /* Signup and Login page container */
+  .signup-page-container form input, .login-page-Container form input {
+    width: 40% !important;
+  }
+
 }
 
 @media (max-width: 500px) {
@@ -521,4 +532,8 @@ header label {
     width: 13%;
   }
 
+  /* Signup and Login page container */
+  .signup-page-container form input, .login-page-Container form input{
+    width: 80% !important;
+  }
 }
