@@ -3,18 +3,19 @@ import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 
 function Navbar() {
-  const {isLoggedIn, logOutUser} = useContext(AuthContext);
+  const {isLoggedIn, logOutUser, user} = useContext(AuthContext);
 
   return(
     <header>
       <Link to="/opinions" className="website-logo">TUHSA-OPINION</Link>
       <input type="checkbox" id="menu-bar"></input>
       <label htmlFor="menu-bar">Menu</label>
+      <Link>Hi {user?.name}</Link>
       
       <nav className="navbar">
       <ul>
-        <li><Link to="/">Account</Link>
-          {isLoggedIn ?
+        <li><Link to="#">Account</Link>
+          {isLoggedIn?
           <ul>
             <li><Link onClick={logOutUser}>Log Out</Link></li>
           </ul>
