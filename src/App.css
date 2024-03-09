@@ -170,6 +170,14 @@ header label {
   align-items: center;
 }
 
+.agree-disagree-container {
+  display: flex;
+}
+
+.agree-disagree-container button{
+  margin-right: 0.5em;
+}
+
 .sub-opinion-title-and-picture, .sub-opinion-body {
   width: 50%;
   padding-right: 0.5em;
