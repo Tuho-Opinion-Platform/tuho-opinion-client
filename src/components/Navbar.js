@@ -10,10 +10,10 @@ function Navbar() {
       <Link to="/opinions" className="website-logo">TUHSA-OPINION</Link>
       <input type="checkbox" id="menu-bar"></input>
       <label htmlFor="menu-bar">Menu</label>
-      <Link>Hi {user?.name}</Link>
       
       <nav className="navbar">
       <ul>
+        {user && <li><Link>Hi {user?.name}</Link></li>}
         <li><Link to="#">Account</Link>
           {isLoggedIn?
           <ul>
