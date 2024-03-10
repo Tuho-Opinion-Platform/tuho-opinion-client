@@ -7,13 +7,13 @@ function Navbar() {
 
   return(
     <header>
-      <Link to="/opinions" className="website-logo">TUHSA-OPINION</Link>
+      <Link to="/opinions" className="website-logo">TUHOSA-OPINION</Link>
       <input type="checkbox" id="menu-bar"></input>
       <label htmlFor="menu-bar">Menu</label>
-      
+
       <nav className="navbar">
       <ul>
-        {user && <li><Link>Hi {user?.name}</Link></li>}
+        {user && <li><Link to="#">Hi {user?.name}</Link></li>}
         <li><Link to="#">Account</Link>
           {isLoggedIn?
           <ul>
