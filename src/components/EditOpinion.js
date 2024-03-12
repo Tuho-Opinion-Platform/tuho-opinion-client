@@ -28,14 +28,6 @@ function EditOpinion() {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    // if (file) {
-    //   setMediaFile(file);
-    //   if (file.type.startsWith('image/')) {
-    //     setMediaUrl(URL.createObjectURL(file));
-    //   } else {
-    //     setMediaUrl(''); // Clear or set a default placeholder for non-image types if necessary
-    //   }
-    // }
     if (file) {
       setMediaFile(file);
       setMediaUrl(URL.createObjectURL(file)); // This works for both images and videos
@@ -94,7 +86,7 @@ function EditOpinion() {
         />
 
         <label>Picture / Video</label>
-        {mediaUrl.endsWith("mp4") 
+        {mediaUrl === "video" 
         ? <video controls src={mediaUrl} className="main-image"/>
         : <img src={mediaUrl} alt="Opinion Preview" className="main-image" /> 
         }
