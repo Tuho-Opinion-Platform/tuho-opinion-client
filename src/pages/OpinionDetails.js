@@ -68,6 +68,8 @@ function OpinionDetails() {
     }
   };
 
+  console.log(opinion?.mediaUrl)
+
   if (opinion === null) {
     return <p>Loading...</p>;
   } else {
@@ -86,8 +88,14 @@ function OpinionDetails() {
         <div className="opinion-content-container">
           <div className="sub-opinion-title-and-picture">
             <p className="title">{opinion.title}</p>
-            {opinion.picture ? <img src={opinion.picture} alt="Opinion" className="main-image" /> : <p>No Picture Available</p>}
-          </div>
+              {opinion?.mediaUrl ? (
+                  opinion.mediaUrl.endsWith(".mp4") ? (
+                    <video controls src={opinion.mediaUrl} className="main-image"></video>
+                  ) : (
+                    <img src={opinion.mediaUrl} alt="Opinion" className="main-image" />
+                  )
+                ) : <p>No Media</p>}
+            </div>
 
           <div className="sub-opinion-body">
             <p>{opinion.body}</p>
@@ -99,7 +107,7 @@ function OpinionDetails() {
               <button><Link to={`/opinions/edit/${opinion._id}`}>Edit Opinion</Link></button>
             )}
             <br />
-            {user ? <CreateComment /> : <h3>Please login to leave a comment! <Link to="/login">Login here</Link></h3>}
+            {user ? <CreateComment /> : <h3>Please login to leave a comment! <Link to="/login">Login</Link> or <Link to="/signup">Sign Up</Link></h3>}
             
             <div className="opinion-comments-container">
               {opinion.comments && opinion.comments.map(comment => (

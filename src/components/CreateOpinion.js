@@ -1,91 +1,90 @@
-import axios from "axios";
-import { useState } from "react";
+import axios from 'axios';
+import { useState } from 'react';
 
 function CreateOpinion() {
-
   const API_URL = process.env.REACT_APP_SERVER_URL;
-  const storedToken = localStorage.getItem("authToken");
+  const storedToken = localStorage.getItem('authToken');
 
-  const [title, setTitle] = useState("");
-  const [picture, setPicture] = useState("");
-  const [body, setBody] = useState("");
-  const [message, setMessage] = useState("");
-  const [selectedFileName, setSelectedFileName] = useState(""); // Added state for managing the file name
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [mediaUrl, setMediaUrl] = useState('');
+  const [message, setMessage] = useState('');
+  const [selectedFileName, setSelectedFileName] = useState('');
 
-
-  const uploadImage = (file) => {
-    return axios
-      .post(`${API_URL}/api/upload`, file, {headers: {Authorization: `Bearer ${storedToken}`}})
-      .then((res) => res.data)
-      .catch((e) => console.log(e));
-  };
-
-  const handleFileUpload = (e) => {
-    const uploadData = new FormData();
-    uploadData.append("picture", e.target.files[0]);
-    const fileName = e.target.files[0] ? e.target.files[0].name : '';
-    setSelectedFileName(fileName);
-
-    uploadImage(uploadData)
-      .then((response) => {
-        setPicture(response.picture);
-      })
-      .catch((err) => console.log("Error while uploading the file: ", err));
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      setMediaUrl(selectedFile);
+      setSelectedFileName(selectedFile.name);
+    }
   };
 
   const postNewOpinion = (e) => {
     e.preventDefault();
 
-    const newOpinion = {
-      title, picture, body
-    };
-
-    if(picture === "") {
-      return <p>{setMessage("Please upload a picture")}</p>
+    if (!mediaUrl) {
+      setMessage('Please upload a media file (photo or video).');
+      return;
     }
 
-    axios.post(`${API_URL}/api/opinions`, newOpinion, {headers: {Authorization: `Bearer ${storedToken}`}})
-      .then(() => {
-        setTitle("");
-        setPicture("");
-        setBody("");
-        window.location.reload();
-      })
-      .catch(e => {console.log("error posting new opinion",e)});
+    const uploadData = new FormData();
+    uploadData.append('title', title);
+    uploadData.append('body', body);
+    uploadData.append('media', mediaUrl); // Add the file to the FormData
+
+    axios.post(`${API_URL}/api/opinions`, uploadData, {
+      headers: {
+        // Don't explicitly set Content-Type to allow Axios to set it based on FormData
+        Authorization: `Bearer ${storedToken}`,
+      },
+    })
+    .then((response) => {
+      console.log('Opinion created successfully:', response.data);
+      // Here, you might want to reset form state or redirect the user
+      setTitle('');
+      setBody('');
+      setMediaUrl(null);
+      setSelectedFileName('');
+      setMessage('Opinion created successfully!');
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error('Error posting new opinion:', error);
+      setMessage('Failed to create opinion. Please try again.');
+    });
   };
 
+  return (
+    <form onSubmit={postNewOpinion}>
+      <input 
+        type="text"
+        name="title"
+        value={title}
+        placeholder="Title"
+        onChange={(e) => setTitle(e.target.value)}
+      />
 
-  return(
-      <form onSubmit={postNewOpinion}>
-        <input 
-          type="text"
-          name="title"
-          value={title}
-          placeholder="Title"
-          onChange={(e) => setTitle(e.target.value)}
-        />
+      <textarea
+        name="body"
+        value={body}
+        placeholder="Your opinion"
+        onChange={(e) => setBody(e.target.value)}
+      />
 
-        <textarea
-          type="text"
-          name="body"
-          value={body}
-          placeholder="Please give your opinion in positive way"
-          onChange={(e) => setBody(e.target.value)}
-        />
+      <input 
+        id="file-upload" // Match the label's htmlFor
+        type="file" 
+        style={{ display: 'none' }}
+        onChange={handleFileChange}
+      />
+        <label htmlFor="file-upload" style={{ cursor: 'pointer' }}> Imgage or Video🤳 </label>
 
-        <input 
-          id="file-upload" // Match the label's htmlFor
-          type="file" 
-          style={{ display: 'none' }}
-          onChange={handleFileUpload}
-        />
-        <label htmlFor="file-upload" style={{ cursor: 'pointer' }}> Upload Picture </label>
-        {selectedFileName && <div>Selected File: {selectedFileName}</div>}
-        
-        <h3>{message}</h3>
-        <button type="submit">Submit</button>
-      </form>
+      {selectedFileName && <div>Selected File: {selectedFileName}</div>}
+
+      <h3>{message}</h3>
+      <button type="submit">Submit Opinion</button>
+    </form>
   );
-};
+}
 
 export default CreateOpinion;
