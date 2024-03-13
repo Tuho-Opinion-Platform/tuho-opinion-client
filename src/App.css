@@ -34,11 +34,23 @@ header {
   z-index: 1000;
 }
 
+nav.navbar {
+  background-color: purple;
+}
+
+label.menu {
+  color: white;
+}
+
 header .website-logo {
   font-weight: bolder;
   font-size: 20px;
   color: white;
   font-family: Arial, Helvetica;
+}
+
+ul {
+  background-color: purple;
 }
 
 header .navbar ul {
@@ -82,11 +94,7 @@ header .navbar ul li:hover > ul {
 
 header #menu-bar {
   display: none;
-}
-
-menu {
-  color: white;
-}
+ }
 
 header label {
   font-size: 20px;
@@ -452,8 +460,6 @@ canvas.react-pdf__Page__canvas {
     position: absolute;
     top: 100%;
     left: 0; right: 0;
-    background-color: white;
-    border-top: 1px solid rgba(0, 0, 0, .1);
     display: none;
   }
 
