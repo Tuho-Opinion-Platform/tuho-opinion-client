@@ -87,7 +87,7 @@ function EditOpinion() {
 
         <label>Picture / Video</label>
         {mediaUrl === "video" 
-        ? <video controls src={mediaUrl} className="main-image"/>
+        ? <video controls src={mediaUrl} className="main-video"/>
         : <img src={mediaUrl} alt="Opinion Preview" className="main-image" /> 
         }
         <input

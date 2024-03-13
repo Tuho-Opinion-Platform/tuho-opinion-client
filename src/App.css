@@ -154,6 +154,17 @@ header label {
   margin-right: 1em;
 }
 
+/* PDF */
+.pdf-div {
+  padding: 50px;
+  background-color: #dedede;
+  margin-top: 50px;
+}
+
+canvas.react-pdf__Page__canvas {
+  margin-bottom: 50px;
+}
+
 /* Opinion details container */
 .opinion-details-container {
   margin: 4em 0.5em 0 0.5em;
@@ -193,7 +204,7 @@ header label {
   margin-top: 1em;
 }
 
-.main-image {
+.main-image, .main-video {
   width: 100%;
   height: 30em;
   margin-top: 0.3em;
@@ -357,7 +368,7 @@ header label {
   text-align: center;
 }
 
-/* Edit opinion */
+/* Form Edit opinion */
 .form-container {
   margin-top: 5em;
   text-align: center;
@@ -398,7 +409,7 @@ header label {
   margin-bottom: 0.5em;
 }
 
-.form-edit-submit img {
+.form-edit-submit img, .form-edit-submit video {
   width: 40%;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
@@ -467,6 +478,13 @@ header label {
     height: 20em;
   }
 
+  /* Form Edit Opinion */
+  .form-edit-submit img, .form-edit-submit video {
+    width: 60%;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+  }
+
   /* Signup and Login page container */
   .signup-page-container form input, .login-page-Container form input {
     width: 30% !important;
@@ -502,6 +520,21 @@ header label {
 
   .sub-opinion-title-and-picture, .sub-opinion-body {
     flex-grow: 1;
+  }
+
+  /* Form Edit Opinion */
+
+  .form-edit-submit textarea {
+    width: 70%;
+  }
+  
+  .form-edit-submit input {
+    width: 40%;
+  }
+
+  .form-edit-submit img, .form-edit-submit video {
+    width: 65%;
+    height: 20em;
   }
 
   /* Signup and Login page container */
@@ -565,6 +598,20 @@ header label {
 
   .comment-container img {
     width: 13%;
+  }
+
+  /* Form Edit Opinion */
+  .form-edit-submit textarea {
+    width: 80%;
+  }
+  
+  .form-edit-submit input {
+    width: 55%;
+  }
+
+  .form-edit-submit img, .form-edit-submit video {
+    width: 80%;
+    height: 17em;
   }
 
   /* Signup and Login page container */
