@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import OpinionDetails from './pages/OpinionDetails';
 import EditOpinion from './components/EditOpinion';
 import CreateComment from './components/CreateComment';
+import Pdf from './pages/Pdf';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/opinions/:opinionId' element={ <OpinionDetails />} />
         <Route path='/opinions/edit/:opinionId' element={ <EditOpinion />} />
         <Route path='/opinions/:opinionId/comments' element={ <CreateComment />} />
+        <Route path='/pdf-file' element={<Pdf />}/>
       </Routes>
     </div>
   );

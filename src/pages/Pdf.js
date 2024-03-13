@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { element } from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
@@ -37,23 +38,28 @@ function Pdf() {
   } else {
     return (
       <div className='pdf-div'>
-        <Document file={opinions.mediaUrl} onLoadSuccess={onDocumentLoadSuccess}>
-        {Array.apply(null, Array(numPages))
-          .map((x, i) => i + 1)
-          .map(page => {
-            return(
-              <Page 
-                pageNumber={page} 
-                renderTextLayer={false} 
-                renderAnnotationLayer={false}     
-              />
-            )
-          })
-        }
-        </Document>
-        <p>
-          Page {pageNumber} of {numPages}
-        </p>
+      { opinions.map(element => (
+        <>
+          <Document file={element.mediaUrl} onLoadSuccess={onDocumentLoadSuccess}>
+          {Array.apply(null, Array(numPages))
+            .map((x, i) => i + 1)
+            .map(page => {
+              return(
+                <Page 
+                  pageNumber={page} 
+                  renderTextLayer={false} 
+                  renderAnnotationLayer={false}     
+                />
+              )
+            })
+          }
+          </Document>
+          <p>
+            Page {pageNumber} of {numPages}
+          </p>
+        </>
+      ))
+      }
       </div>
     );
     

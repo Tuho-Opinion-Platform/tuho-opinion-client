@@ -4,12 +4,28 @@
   text-decoration: none;
 }
 
+input, textarea, button {
+  border-color: purple;
+  border-width: 2px;
+}
+
+button {
+  border-radius: 5px;
+  padding: 2px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-width: 3px;
+}
+
 header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: white;
+  background: purple;
   box-shadow: 0 10px 15px rgba(0, 0, 0, .1);
   padding: 0px 7%;
   display: flex;
@@ -21,7 +37,7 @@ header {
 header .website-logo {
   font-weight: bolder;
   font-size: 20px;
-  color: rgb(106, 45, 74);
+  color: white;
   font-family: Arial, Helvetica;
 }
 
@@ -37,13 +53,13 @@ header .navbar ul li {
 header .navbar ul li a {
   font-size: 20px;
   padding: 10px;
-  color: black;
+  color: white;
   font-weight: bold;
   display: block;
 }
 
 header .navbar ul li a:hover {
-  background-color: grey;
+  background-color: rgb(91, 22, 84);
   color: whitesmoke;
 }
 
@@ -159,10 +175,12 @@ header label {
   padding: 50px;
   background-color: #dedede;
   margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 canvas.react-pdf__Page__canvas {
-  margin-bottom: 50px;
+  margin: 10px;
 }
 
 /* Opinion details container */
