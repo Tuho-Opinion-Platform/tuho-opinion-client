@@ -84,6 +84,10 @@ header #menu-bar {
   display: none;
 }
 
+menu {
+  color: white;
+}
+
 header label {
   font-size: 20px;
   font-weight: bold;

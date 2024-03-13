@@ -9,7 +9,7 @@ function Navbar() {
     <header>
       <Link to="/opinions" className="website-logo">TUHOSA-OPINION</Link>
       <input type="checkbox" id="menu-bar"></input>
-      <label htmlFor="menu-bar">Menu</label>
+      <label htmlFor="menu-bar" className="menu">Menu</label>
 
       <nav className="navbar">
       <ul>
