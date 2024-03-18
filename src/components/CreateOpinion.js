@@ -30,17 +30,13 @@ function CreateOpinion() {
     const uploadData = new FormData();
     uploadData.append('title', title);
     uploadData.append('body', body);
-    uploadData.append('media', mediaUrl); // Add the file to the FormData
-
+    uploadData.append('media', mediaUrl); 
     axios.post(`${API_URL}/api/opinions`, uploadData, {
       headers: {
-        // Don't explicitly set Content-Type to allow Axios to set it based on FormData
         Authorization: `Bearer ${storedToken}`,
       },
     })
     .then((response) => {
-      console.log('Opinion created successfully:', response.data);
-      // Here, you might want to reset form state or redirect the user
       setTitle('');
       setBody('');
       setMediaUrl(null);
