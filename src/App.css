@@ -5,6 +5,10 @@
   color: black;
 }
 
+textarea:focus {
+  outline: none;
+}
+
 input, textarea, button {
   border-width: 2px;
 }
@@ -142,10 +146,6 @@ header label {
   border-bottom: 2px solid black;
   border-bottom-right-radius: none;
   border-bottom-left-radius: none;
-}
-
-.opinions-main-container .input-container form textarea:focus{
-  outline: none;
 }
 
 
