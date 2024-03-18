@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CreateOpinion from "../components/CreateOpinion";
 import { AuthContext } from "../context/auth.context";
+import { CiSearch } from "react-icons/ci";
 
 
 function Opinions() {
@@ -32,18 +33,19 @@ function Opinions() {
   } else {
     return (
       <div className="opinions-main-container">
-
-        <div className="input-container">
-          {user ? <CreateOpinion /> : <h3>Please login to post your opinion click <Link to="/login">here</Link></h3>}
-        </div>
-
-        <div className="input-filter-container">
+        <div className="search-icon-container">
           <input
             type="text"
             value={title}
             onChange={e => setTitle(e.target.value)}
-            placeholder="Search by title"
+            placeholder="Search..."
+            className="input-filter-container"
           />
+          <span><CiSearch /></span>
+        </div>
+
+        <div className="input-container">
+          {user && <CreateOpinion />}
         </div>
 
         <div className="opinions-container">

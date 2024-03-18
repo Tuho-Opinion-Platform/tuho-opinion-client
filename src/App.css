@@ -2,10 +2,10 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  color: black;
 }
 
 input, textarea, button {
-  border-color: purple;
   border-width: 2px;
 }
 
@@ -25,7 +25,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background: purple;
+  background: whitesmoke;
   box-shadow: 0 10px 15px rgba(0, 0, 0, .1);
   padding: 0px 7%;
   display: flex;
@@ -34,24 +34,12 @@ header {
   z-index: 1000;
 }
 
-nav.navbar {
-  background-color: purple;
-}
-
-label.menu {
-  color: white;
-}
-
 header .website-logo {
   font-weight: bolder;
   font-size: 20px;
-  color: white;
   font-family: Arial, Helvetica;
 }
 
-ul {
-  background-color: purple;
-}
 
 header .navbar ul {
   list-style: none;
@@ -65,7 +53,7 @@ header .navbar ul li {
 header .navbar ul li a {
   font-size: 20px;
   padding: 10px;
-  color: white;
+  color: rgb(3, 3, 3);
   font-weight: bold;
   display: block;
 }
@@ -111,6 +99,26 @@ header label {
 
 .opinions-main-container {
   margin-top: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-icon-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.search-icon-container input {
+  width: 25vw;
+  height: 4vh;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.search-icon-container span {
+  margin-left: -1.5vw;
 }
 
 .opinions-main-container .input-container{
@@ -126,16 +134,23 @@ header label {
 }
 
 .opinions-main-container .input-container form textarea{
-  width: 50%;
-  height: 6em;
-  border-radius: 10px;
+  width: 50vw;
   padding-top: 1em;
   text-align: center;
   line-height: 1.5em;
+  border: none;
+  border-bottom: 2px solid black;
+  border-bottom-right-radius: none;
+  border-bottom-left-radius: none;
 }
 
+.opinions-main-container .input-container form textarea:focus{
+  outline: none;
+}
+
+
 .input-container form input {
-  width: 20%;
+  width: 20vw;
   height: 2em;
   border-radius: 10px;
   text-align: center;
@@ -147,7 +162,9 @@ header label {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-  justify-content: center;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
 }
 
 .main-picture-from-opinion-page{
@@ -160,7 +177,7 @@ header label {
   display: flex;
   flex-direction: column;
   width: 23%;
-  margin: 0 1%;
+  margin: 0 1% ;
   margin-bottom: 1em;
 }
 
@@ -471,6 +488,14 @@ canvas.react-pdf__Page__canvas {
   header #menu-bar:checked ~ .navbar {
     display: initial;
   }
+  
+  .search-icon-container input {
+    width: 50vw;
+  }
+
+  .search-icon-container span {
+    margin-left: -4vw;
+  }
 
   /* Input-container form */
   .opinions-main-container .input-container form input{
@@ -573,6 +598,10 @@ canvas.react-pdf__Page__canvas {
 }
 
 @media (max-width: 500px) {
+  .search-icon-container span {
+    margin-left: -5vw;
+  }
+
   /* Input-container form */
   .opinions-main-container .input-container form input{
     width: 45%;
