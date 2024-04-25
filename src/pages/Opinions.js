@@ -81,9 +81,11 @@ function Opinions() {
             </div>
           ))}
         </div>
-        <div className="container-button-load-more">
-          <button onClick={showMoreItems} className="button-load-more">Load More</button>
-        </div>
+        {opinions.length > 4 && (
+          <div className="container-button-load-more">
+            <button onClick={showMoreItems} className="button-load-more">Load More</button>
+          </div>
+        )}
       </div>
     );
   }
