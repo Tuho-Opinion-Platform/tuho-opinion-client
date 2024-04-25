@@ -73,7 +73,7 @@ function CreateOpinion() {
         style={{ display: 'none' }}
         onChange={handleFileChange}
       />
-        <label htmlFor="file-upload" style={{ cursor: 'pointer' }}> Imgage or Video🤳 </label>
+        <label htmlFor="file-upload" style={{ cursor: 'pointer' }}> Image or Video🤳 </label>
 
       {selectedFileName && <div>Selected File: {selectedFileName}</div>}
 
