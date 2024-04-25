@@ -29,7 +29,7 @@ function Opinions() {
   }, [title]);
 
   if (opinions.length < 1) {
-    return <h3 className="loading-from-opinion-page">Loading... Fetching opinions...</h3>;
+    return <div class="lds-dual-ring"></div>;
   } else {
     return (
       <div className="opinions-main-container">

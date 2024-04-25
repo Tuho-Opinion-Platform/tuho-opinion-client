@@ -10,7 +10,7 @@ function OpinionDetails() {
   const { opinionId } = useParams();
   const storedToken = localStorage.getItem("authToken");
   const { user } = useContext(AuthContext);
-  const [opinion, setOpinion] = useState("");
+  const [opinion, setOpinion] = useState(null);
   const [opinionOwnerId, setOpinionOwnerId] = useState("");
 
   const getCounts = (key) => {
@@ -68,9 +68,8 @@ function OpinionDetails() {
     }
   };
 
-
-  if (opinion === "") {
-    return <p>Loading... Fetching Opinion Details</p>;
+  if (opinion === null) {
+    return <div class="lds-dual-ring"></div>;
   } else {
     return (
       <div className="opinion-details-container">
