@@ -10,7 +10,13 @@ function Opinions() {
   const API_URL = process.env.REACT_APP_SERVER_URL;
   const [opinions, setOpinions] = useState([]);
   const [title, setTitle] = useState("");
+  const [visible, setVisible] = useState(4);
   const { user } = useContext(AuthContext);
+
+
+  const showMoreItems = () => {
+    setVisible(prevValue => prevValue + 3)
+  }
 
   useEffect(() => {
     function fetchingOpinions() {
@@ -29,7 +35,7 @@ function Opinions() {
   }, [title]);
 
   if (opinions.length < 1) {
-    return <div class="lds-dual-ring"></div>;
+    return <div className="lds-dual-ring"></div>;
   } else {
     return (
       <div className="opinions-main-container">
@@ -49,7 +55,7 @@ function Opinions() {
         </div>
 
         <div className="opinions-container">
-          {opinions.map(elementOfOpinions => (
+          {opinions.slice(0, visible).map(elementOfOpinions => (
             <div key={elementOfOpinions._id} className="sub-opinions-container">
               <div className="author-opinion-container">
                 <img src={elementOfOpinions.authorOpinion.picture} alt="author" />
@@ -69,11 +75,14 @@ function Opinions() {
                     <img src={elementOfOpinions.mediaUrl} alt="Opinion" className="main-picture-from-opinion-page" />
                     </>
                   )
-                ) : <p>No Media</p>}
+                ) : <p style={{textAlign: "center"}}>No Media</p>}
               </Link>
-
+              
             </div>
           ))}
+        </div>
+        <div className="container-button-load-more">
+          <button onClick={showMoreItems} className="button-load-more">Load More</button>
         </div>
       </div>
     );

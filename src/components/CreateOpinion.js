@@ -68,7 +68,7 @@ function CreateOpinion() {
       />
 
       <input 
-        id="file-upload" // Match the label's htmlFor
+        id="file-upload"
         type="file" 
         style={{ display: 'none' }}
         onChange={handleFileChange}

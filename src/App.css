@@ -15,9 +15,10 @@ input, textarea, button {
 
 button {
   border-radius: 5px;
-  padding: 2px;
+  padding: 4px;
   margin: 2px;
   cursor: pointer;
+  background-color: rgb(206, 206, 219);
 }
 
 button:hover {
@@ -94,6 +95,30 @@ header label {
   cursor: pointer;
   display: none;
 }
+
+/*  */
+
+.container-button-load-more {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.button-load-more {
+  padding: 5px;
+  background-color: rgb(206, 206, 219);
+  font-weight: bold;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0.5em;
+}
+
+.button-load-more:hover {
+  font-weight: bolder;
+}
+
 
 /* Loader spinner */
 

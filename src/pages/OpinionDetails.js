@@ -69,7 +69,7 @@ function OpinionDetails() {
   };
 
   if (opinion === null) {
-    return <div class="lds-dual-ring"></div>;
+    return <div className="lds-dual-ring"></div>;
   } else {
     return (
       <div className="opinion-details-container">
