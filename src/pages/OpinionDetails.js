@@ -10,7 +10,7 @@ function OpinionDetails() {
   const { opinionId } = useParams();
   const storedToken = localStorage.getItem("authToken");
   const { user } = useContext(AuthContext);
-  const [opinion, setOpinion] = useState(null);
+  const [opinion, setOpinion] = useState("");
   const [opinionOwnerId, setOpinionOwnerId] = useState("");
 
   const getCounts = (key) => {
@@ -68,10 +68,9 @@ function OpinionDetails() {
     }
   };
 
-  console.log(opinion?.mediaUrl)
 
-  if (opinion === null) {
-    return <p>Loading...</p>;
+  if (opinion === "") {
+    return <p>Loading... Fetching Opinion Details</p>;
   } else {
     return (
       <div className="opinion-details-container">

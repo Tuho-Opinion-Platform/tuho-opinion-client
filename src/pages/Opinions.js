@@ -28,8 +28,8 @@ function Opinions() {
     fetchingOpinions();
   }, [title]);
 
-  if (opinions.length === null) {
-    return <h3 className="loading-from-opinion-page">Loading...</h3>;
+  if (opinions.length < 1) {
+    return <h3 className="loading-from-opinion-page">Loading... Fetching opinions...</h3>;
   } else {
     return (
       <div className="opinions-main-container">
